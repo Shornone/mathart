@@ -27,7 +27,7 @@
 #' mollusc()
 
 mollusc <- function(n_s = 100, n_t = 500,
-                    alpha = 80, beta = 40, phi = 55, mu = 30, Omega = 10, s_min = -170, s_max = 62,
+                    alpha = 80, beta = 40, phi = 55, mu = 30, Omega = 130, s_min = -70, s_max = 62,
                     A = 25, a = 12, b = 16, P = 2, W_1 = 1, W_2 = 1, N = 0, L = 0, D = 1,
                     theta_start = 0, theta_end = 10*pi) {
   alpha <- alpha * pi / 180
@@ -44,7 +44,7 @@ mollusc <- function(n_s = 100, n_t = 500,
                          seq(theta_start, theta_end, (theta_end-theta_start)/(n_t-1))) %>%
                dplyr::rename(s = Var1, theta = Var2)) %>%
     dplyr::mutate(
-      f_theta = ifelse(N == 0, Inf, 360/N*(theta*N/360-round(theta*N/360, 0))),
+      f_theta = ifelse(N == 0, Inf, 60/N*(theta*N/360-round(theta*N/360, 0))),
       R_e = (a^(-2)*(cos(s))^2+b^(-2)*(sin(s))^2)^(-0.5),
       k = L*exp(-(2*(s-P)/W_1)^2)*exp(-(2*f_theta/W_2)^2),
       R = R_e + k,
