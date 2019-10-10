@@ -26,10 +26,10 @@
 #' @examples
 #' mollusc()
 
-mollusc <- function(n_s = 500, n_t = 2000,
-                    alpha = 80, beta = 40, phi = 55, mu = 30, Omega = 10, s_min = -270, s_max = 62,
+mollusc <- function(n_s = 100, n_t = 500,
+                    alpha = 80, beta = 40, phi = 55, mu = 30, Omega = 10, s_min = -170, s_max = 62,
                     A = 25, a = 12, b = 16, P = 2, W_1 = 1, W_2 = 1, N = 0, L = 0, D = 1,
-                    theta_start = 6, theta_end = 15*pi) {
+                    theta_start = 0, theta_end = 10*pi) {
   alpha <- alpha * pi / 180
   beta <- beta * pi / 180
   phi <- phi * pi / 180
