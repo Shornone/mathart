@@ -44,7 +44,7 @@ mollusc <- function(n_s = 1000, n_t = 4000,
                          seq(theta_start, theta_end, (theta_end-theta_start)/(n_t-1))) %>%
                dplyr::rename(s = Var1, theta = Var2)) %>%
     dplyr::mutate(
-      f_theta = ifelse(N == 0, Inf, 60/N*(theta*N/360-round(theta*N/360, 0))),
+      f_theta = ifelse(N == 0, Inf, 360/N*(theta*N/360-round(theta*N/360, 0))),
       R_e = (a^(-2)*(cos(s))^2+b^(-2)*(sin(s))^2)^(-0.5),
       k = L*exp(-(2*(s-P)/W_1)^2)*exp(-(2*f_theta/W_2)^2),
       R = R_e + k,
